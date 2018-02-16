@@ -5,7 +5,7 @@ def generateCSS(filename):
 	keywords = ['True', 'False', 'None', 'and', 'as', 'assert', 'break', 'continue',
 		'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if',
 		'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return',
-		'try', 'while', 'with', 'yield', ' = ', ' + ', ' - ', ' [*]? ', ' / ', ' % ', ' // ']
+		'try', 'while', 'with', 'yield', ' = ', ' \+ ', ' - ', ' [*]+? ', ' / ', ' % ', ' // ']
 	output = ''
 	with open(filename, 'r') as f:
 		for line in f:
