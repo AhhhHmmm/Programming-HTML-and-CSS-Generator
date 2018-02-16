@@ -3,6 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 
+print(30 ** 2)
+print(4 + 3 - 5 * (35 / 4))
+print(15 % 400)
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'Thisissupposedtobesecret!'
 
