@@ -63,6 +63,10 @@
 		.keyword {
 			color: #FFAAAA;
 		}
+
+		.dataType {
+			color: #AA77FF;
+		}
 	</style>
 </head>
 <body>
@@ -83,15 +87,15 @@
 			<p>&nbsp;</p>
 			<p><span class="comment"># Database stuff</span></p>
 			<p>app.config[<span class="string">'SQLALCHEMY_DATABASE_URI'</span>]<span class="keyword"> = </span><span class="string">"sqlite:////Users/admin/Desktop/Programming/Python/Flask/Admin/database.db"</span></p>
-			<p>app.config[<span class="string">'SQLALCHEMY_TRACK_MODIFICATIONS'</span>]<span class="keyword"> = </span><span class="keyword">False</span></p>
+			<p>app.config[<span class="string">'SQLALCHEMY_TRACK_MODIFICATIONS'</span>]<span class="keyword"> = </span><span class="dataType">False</span></p>
 			<p>&nbsp;</p>
 			<p>db<span class="keyword"> = </span><span class="function">SQLAlchemy</span>(app)</p>
 			<p>&nbsp;</p>
 			<p><span class="comment"># Database Classes</span></p>
 			<p><span class="comment"># DB Classes for Question Related Stuff</span></p>
 			<p><span class="keyword">class</span> <span class="function">Subject</span>(db.Model):</p>
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;id<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Integer, primary_key=<span class="keyword">True</span>)</p>
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;title<span class="keyword"> = </span>db.<span class="function">Column</span>(db.<span class="function">String</span>(40), unique=<span class="keyword">True</span>)</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;id<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Integer, primary_key=<span class="dataType">True</span>)</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;title<span class="keyword"> = </span>db.<span class="function">Column</span>(db.<span class="function">String</span>(40), unique=<span class="dataType">True</span>)</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Back Reference</span></p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;blocks<span class="keyword"> = </span>db.<span class="function">relationship</span>(<span class="string">'Block'</span>, backref=<span class="string">'subject'</span>, lazy='dynamic')</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#users = db.relationship('User', backref='subject', lazy='dynamic')</span></p>
@@ -101,7 +105,7 @@
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="string">'<Subject {}>'</span>.<span class="function">format</span>(self.title)</p>
 			<p>&nbsp;</p>
 			<p><span class="keyword">class</span> <span class="function">Unit</span>(db.Model):</p>
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;id<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Integer, primary_key=<span class="keyword">True</span>)</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;id<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Integer, primary_key=<span class="dataType">True</span>)</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;number<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Integer)</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;title<span class="keyword"> = </span>db.<span class="function">Column</span>(db.<span class="function">String</span>(40))</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Foreign Keys</span></p>
@@ -113,7 +117,7 @@
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="string">'<Unit {}: {}>'</span>.<span class="function">format</span>(self.number, self.title)</p>
 			<p>&nbsp;</p>
 			<p><span class="keyword">class</span> <span class="function">Lesson</span>(db.Model):</p>
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;id<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Integer, primary_key=<span class="keyword">True</span>)</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;id<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Integer, primary_key=<span class="dataType">True</span>)</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;number<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Integer)</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;title<span class="keyword"> = </span>db.<span class="function">Column</span>(db.<span class="function">String</span>(40))</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;date_assigned<span class="keyword"> = </span>db.<span class="function">Column</span>(db.DateTime)</p>
@@ -128,7 +132,7 @@
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="string">'<Unit: {}, Lesson: {}<span class="keyword"> - </span>{}>'</span>.<span class="function">format</span>(self.unit.number, self.number, self.title)</p>
 			<p>&nbsp;</p>
 			<p><span class="keyword">class</span> <span class="function">Question</span>(db.Model):</p>
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;id<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Integer, primary_key=<span class="keyword">True</span>)</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;id<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Integer, primary_key=<span class="dataType">True</span>)</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;number<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Integer)</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;html<span class="keyword"> = </span>db.<span class="function">Column</span>(db.String)</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Foreign Keys</span></p>
@@ -140,7 +144,7 @@
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="string">'<Unit: {}, Lesson: {}, Question: {}>'</span>.<span class="function">format</span>(self.lesson.unit.number, self.lesson.number, self.number)</p>
 			<p>&nbsp;</p>
 			<p><span class="keyword">class</span> <span class="function">Part</span>(db.Model):</p>
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;id<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Integer, primary_key=<span class="keyword">True</span>)</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;id<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Integer, primary_key=<span class="dataType">True</span>)</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;letter<span class="keyword"> = </span>db.<span class="function">Column</span>(db.<span class="function">String</span>(1))</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;html<span class="keyword"> = </span>db.<span class="function">Column</span>(db.String)</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;answer<span class="keyword"> = </span>db.<span class="function">Column</span>(db.String)</p>
@@ -154,7 +158,7 @@
 			<p>&nbsp;</p>
 			<p><span class="comment"># DB Classes for Question Related Stuff</span></p>
 			<p><span class="keyword">class</span> <span class="function">Block</span>(db.Model):</p>
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;id<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Integer, primary_key=<span class="keyword">True</span>)</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;id<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Integer, primary_key=<span class="dataType">True</span>)</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;number<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Integer)</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Foreign Keys</span></p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;subject_id<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Integer, db.<span class="function">ForeignKey</span>(<span class="string">'subject.id'</span>))</p>
@@ -165,11 +169,11 @@
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="string">'<Subject: {}, Block: {}>'</span>.<span class="function">format</span>(self.subject.title, self.number)</p>
 			<p>&nbsp;</p>
 			<p><span class="keyword">class</span> <span class="function">User</span>(db.Model):</p>
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;id<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Integer, primary_key=<span class="keyword">True</span>)</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;id<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Integer, primary_key=<span class="dataType">True</span>)</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;account_type = db.Column(db.String(20)) <span class="comment"># either 'Student' or 'Teacher'</span></p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;first_name<span class="keyword"> = </span>db.<span class="function">Column</span>(db.<span class="function">String</span>(40))</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;last_name<span class="keyword"> = </span>db.<span class="function">Column</span>(db.<span class="function">String</span>(40))</p>
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;email<span class="keyword"> = </span>db.<span class="function">Column</span>(db.<span class="function">String</span>(100), unique=<span class="keyword">True</span>)</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;email<span class="keyword"> = </span>db.<span class="function">Column</span>(db.<span class="function">String</span>(100), unique=<span class="dataType">True</span>)</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;password<span class="keyword"> = </span>db.<span class="function">Column</span>(db.<span class="function">String</span>(100))</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># Foreign Keys</span></p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment">#subject_id = db.Column(db.Integer, db.ForeignKey('subject.id'))</span></p>
@@ -181,7 +185,7 @@
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="string">'<Name: {} {}, Subject: {}>'</span>.<span class="function">format</span>(self.first_name, self.last_name, self.block.subject.title)</p>
 			<p>&nbsp;</p>
 			<p><span class="keyword">class</span> <span class="function">Response</span>(db.Model):</p>
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;id<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Integer, primary_key=<span class="keyword">True</span>)</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;id<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Integer, primary_key=<span class="dataType">True</span>)</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;answer_text<span class="keyword"> = </span>db.<span class="function">Column</span>(db.<span class="function">String</span>(30))</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;status<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Boolean)</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;tries<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Integer)</p>
@@ -206,7 +210,7 @@
 			<p>admin.<span class="function">add_view</span>(<span class="function">ModelView</span>(Response, db.session))</p>
 			<p>&nbsp;</p>
 			<p><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</p>
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;app.<span class="function">run</span>(debug=<span class="string">'<span class="keyword">True</span>'</span>)</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;app.<span class="function">run</span>(debug=<span class="string">'<span class="dataType">True</span>'</span>)</p>
 		</div>
 	</div>
 </body>

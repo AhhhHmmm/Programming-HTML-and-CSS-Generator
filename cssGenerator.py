@@ -2,11 +2,12 @@ import re
 import pyperclip
 
 def generateCSS(filename):
-	keywords = ['True', 'False', 'None', 'and', 'as', 'assert', 'break', 'continue',
+	dataTypes = ['True', 'False', 'None',]
+	keywords = ['and', 'as', 'assert', 'break', 'continue',
 		'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if',
 		'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return',
-		'try', 'while', 'with', 'yield']
-	operations = [' = ', ' \+ ', ' - ', ' [*]+? ', ' / ', ' % ', ' // ']
+		'try', 'while', 'with', 'yield',]
+	operations = [' = ', ' \+ ', ' - ', ' [*]+? ', ' / ', ' % ', ' // ',]
 	output = ''
 	with open(filename, 'r') as f:
 		for line in f:
@@ -16,11 +17,15 @@ def generateCSS(filename):
 			if '#' not in line:
 				line = re.sub(r'("[^keyword].*?")', r'<span class="string">\1</span>', line)
 				line = re.sub(r'(\'[^keyword].*?\')', r'<span class="string">\1</span>', line)
+			# add spans around dataTypes
+			for dataType in dataTypes:
+				if '#' not in line:
+					line = re.sub(r'\b({})\b'.format(dataType), r'<span class="dataType">\1</span>', line)
 			# add spans around keywords
 			for keyword in keywords:
 				if '#' not in line:
 					line = re.sub(r'\b({})\b'.format(keyword), r'<span class="keyword">\1</span>', line)
-			# add spans around operationss
+			# add spans around operations
 			for operation in operations:
 				if '#' not in line:
 					line = re.sub(r'({})'.format(operation), r'<span class="keyword">\1</span>', line)
