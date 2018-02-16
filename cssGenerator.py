@@ -2,8 +2,10 @@ import re
 import pyperclip
 
 def generateCSS(filename):
-	keywords = ['for', 'in', 'and', 'list', 'while', 'if', 'else', 'elif', 'def' ,'import', 
-		'return', 'from', 'True', 'False', ' = ', ' + ', ' - ', ' [*]? ', ' / ', ' % ', ' // ']
+	keywords = ['True', 'False', 'None', 'and', 'as', 'assert', 'break', 'continue',
+		'def', 'del', 'elif', 'else', 'except', 'finally', 'for', 'from', 'global', 'if',
+		'import', 'in', 'is', 'lambda', 'nonlocal', 'not', 'or', 'pass', 'raise', 'return',
+		'try', 'while', 'with', 'yield', ' = ', ' + ', ' - ', ' [*]? ', ' / ', ' % ', ' // ']
 	output = ''
 	with open(filename, 'r') as f:
 		for line in f:
