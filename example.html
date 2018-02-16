@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Code on Websites</title>
+	
+
+	<style type="text/css">
+		html {
+
+		}
+
+		body {
+			font-family: Arial;
+			background-color: lightgray;
+		}
+
+		.container {
+			background-color: white;
+			height: 100vh;
+			padding: 20px;
+			margin-top: -10px
+		}
+
+		.codebox {
+			display: inline-block;
+			background: linear-gradient(to right, #000000, #111111);
+			color: white;
+			font-family: monospace;
+			padding: 10px;
+			box-shadow: 3px 1px lightgray;
+			border-radius: 5px 5px 5px 5px;
+			border-left: 6px solid orange;
+			width: 90%;
+		}
+
+		.codebox > p {
+			margin: 2px;
+			font-size: 14px;
+		}
+
+		.function {
+			color: #CCCCFF;
+		}
+
+		.string {
+			color: #FFFFCC;
+		}
+
+		.comment {
+			color: #AAAAAA;
+		}
+
+		.keyword {
+			color: #FFCCCC;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Displaying Code on a Webpage</h1>
+		<p>This is an example where I am working on using CSS to display code examples.</p>
+		<div class="codebox">
+			<p><span class="keyword">import</span> turtle</p>
+<p>&nbsp;</p>
+<p><span class="comment"># This is a comment.</span></p>
+<p>turtle = <span class="function">Turtle</span>()</p>
+<p>inputs = [<span class="string">"thing1"</span>, <span class="string">"thing2"</span>, <span class="string">"thing3"</span>]</p>
+<p>&nbsp;</p>
+<p><span class="keyword">for</span> thing <span class="keyword">in</span> inputs:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(thing) <span class="comment"># comment!!!</span></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">if</span> x > 3:</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="function">print</span>(x ** 2)</p>
+
+		</div>
+	</div>
+
+	
+</body>
+</html>
