@@ -76,14 +76,14 @@
 			<p><span class="keyword">from</span> flask_admin.contrib.sqla <span class="keyword">import</span> ModelView</p>
 			<p>&nbsp;</p>
 			<p><span class="function">print</span>(30<span class="keyword"> ** </span>2)</p>
-			<p><span class="function">print</span>(4<span class="keyword"> + </span>3<span class="keyword"> - </span>5 * (35<span class="keyword"> / </span>4))</p>
+			<p><span class="function">print</span>(4<span class="keyword"> + </span>3<span class="keyword"> - </span>5<span class="keyword"> * </span>(35<span class="keyword"> / </span>4))</p>
 			<p><span class="function">print</span>(15<span class="keyword"> % </span>400)</p>
 			<p>app<span class="keyword"> = </span><span class="function">Flask</span>(__name__)</p>
-			<p>app.config[<span class="string">'SECRET_KEY'</span>] = <span class="string">'Thisissupposedtobesecret!'</span></p>
+			<p>app.config[<span class="string">'SECRET_KEY'</span>]<span class="keyword"> = </span><span class="string">'Thisissupposedtobesecret!'</span></p>
 			<p>&nbsp;</p>
 			<p><span class="comment"># Database stuff</span></p>
-			<p>app.config[<span class="string">'SQLALCHEMY_DATABASE_URI'</span>] = <span class="string">"sqlite:////Users/admin/Desktop/Programming/Python/Flask/Admin/database.db"</span></p>
-			<p>app.config[<span class="string">'SQLALCHEMY_TRACK_MODIFICATIONS'</span>] = <span class="keyword">False</span></p>
+			<p>app.config[<span class="string">'SQLALCHEMY_DATABASE_URI'</span>]<span class="keyword"> = </span><span class="string">"sqlite:////Users/admin/Desktop/Programming/Python/Flask/Admin/database.db"</span></p>
+			<p>app.config[<span class="string">'SQLALCHEMY_TRACK_MODIFICATIONS'</span>]<span class="keyword"> = </span><span class="keyword">False</span></p>
 			<p>&nbsp;</p>
 			<p>db<span class="keyword"> = </span><span class="function">SQLAlchemy</span>(app)</p>
 			<p>&nbsp;</p>
@@ -125,7 +125,7 @@
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;questions<span class="keyword"> = </span>db.<span class="function">relationship</span>(<span class="string">'Question'</span>, backref=<span class="string">'lesson'</span>, lazy='dynamic')</p>
 			<p>&nbsp;</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">def</span> <span class="function">__repr__</span>(self):</p>
-			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="string">'<Unit: {}, Lesson: {} - {}>'</span>.<span class="function">format</span>(self.unit.number, self.number, self.title)</p>
+			<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="string">'<Unit: {}, Lesson: {}<span class="keyword"> - </span>{}>'</span>.<span class="function">format</span>(self.unit.number, self.number, self.title)</p>
 			<p>&nbsp;</p>
 			<p><span class="keyword">class</span> <span class="function">Question</span>(db.Model):</p>
 			<p>&nbsp;&nbsp;&nbsp;&nbsp;id<span class="keyword"> = </span>db.<span class="function">Column</span>(db.Integer, primary_key=<span class="keyword">True</span>)</p>
