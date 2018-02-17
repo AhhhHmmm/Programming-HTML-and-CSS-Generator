@@ -27,11 +27,15 @@ def generateCSS(filename):
 					line = re.sub(r'\b({})\b'.format(keyword), r'<span class="keyword">\1</span>', line)
 			# add spans around operations
 			for operation in operations:
-				if '#' not in line:
-					line = re.sub(r'({})'.format(operation), r'<span class="keyword">\1</span>', line)
+				lineparts = line.split('#')
+				lineparts[0] = re.sub(r'({})'.format(operation), r'<span class="keyword">\1</span>', lineparts[0])
+				line = '#'.join(lineparts)
 			# add spans around functions
-			if '#' not in line:
-				line = re.sub(r'\b(\w+)\(', r'<span class="function">\1</span>(', line)
+			# if '#' not in line:
+			line = re.sub(r'(\b[^#>].\w+)\(', r'<span class="function">\1</span>(', line)
+			# # add spans around functionKeywords
+			# if '#' not in line:
+			# 	line = re.sub(r'\b(\w+)=', r'<span class="functionKeywords">\1</span>=', line)
 			# add spans around comments
 			line = re.sub(r'(\#.*$)', r'<span class="comment">\1</span>', line)
 			# replace tabs with &nbsp;
@@ -44,5 +48,5 @@ def generateCSS(filename):
 		return output
 
 if __name__ == "__main__":
-	generatedCSS = generateCSS('bigExample.py')
+	generatedCSS = generateCSS('exampleInput.py')
 	print(generatedCSS)
