@@ -46,7 +46,7 @@ def generateCSS(filename):
 			line = re.sub(r'\t', '&nbsp;'*4, line)
 			if line == '\n' or line == '':
 				line = '&nbsp;'
-			output += '<p>' + line.strip() + '</p>\n'
+			output += '<p class="code-line">' + line.strip() + '</p>\n'
 		output = output[:-1]
 		pyperclip.copy(output)
 		return output
